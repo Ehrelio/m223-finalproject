@@ -6,11 +6,9 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalDate; 
 
-import java.util.List;
-
+@Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,16 +28,22 @@ public class User {
     private String email;
 
     @Column(nullable = false)
+    private String hashedPassword;
+
+    @Column(nullable = false)
     private boolean admin;
 
     @ManyToOne(optional = true)
     @Fetch(FetchMode.JOIN)
     private Group group;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    public Login login;
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     public Long getId() {
         return id;

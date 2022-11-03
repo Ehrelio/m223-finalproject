@@ -6,13 +6,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "Launch GenerateToken",
-            "request": "launch",
-            "mainClass": "ch.zli.m223.GenerateToken",
-            "projectName": "punchclock"
-        },
-        {
             "preLaunchTask": "quarkus:dev",
             "type": "java",
             "request": "attach",
