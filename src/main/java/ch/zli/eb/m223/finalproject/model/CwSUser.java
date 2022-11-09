@@ -6,10 +6,21 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import java.time.LocalDate; 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.time.LocalDate;
+import java.util.List; 
 
 @Entity
-public class User {
+public class CwSUser {
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
@@ -35,13 +46,18 @@ public class User {
 
     @ManyToOne(optional = true)
     @Fetch(FetchMode.JOIN)
-    private Group group;
+    private CwSGroup group;
 
-    public Group getGroup() {
+    @OneToMany(mappedBy = "CwSUser")
+    @JsonIgnoreProperties("CwSUser")
+    @Fetch(FetchMode.JOIN)
+    private List<Booking> bookings;
+
+    public CwSGroup getGroup() {
         return group;
     }
 
-    public void setGroup(Group group) {
+    public void setGroup(CwSGroup group) {
         this.group = group;
     }
 

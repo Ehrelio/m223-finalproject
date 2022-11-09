@@ -5,9 +5,15 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.swing.GroupLayout.Group;
 import javax.transaction.Transactional;
 
-import ch.zli.eb.m223.finalproject.model.Group;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+
+import ch.zli.eb.m223.finalproject.model.CwSGroup;
+import ch.zli.eb.m223.finalproject.model.CwSUser;
+import io.quarkus.security.User;
 
 @ApplicationScoped
 public class GroupService {
@@ -16,24 +22,32 @@ public class GroupService {
     EntityManager entityManager;
 
     @Transactional
-    public Group createGroup(Group group){
+    public CwSGroup find(Long id){
+        return entityManager.find(CwSGroup.class, id);
+    }
+
+    @Transactional
+    public CwSGroup createGroup(CwSGroup group){
         return entityManager.merge(group);
     }
 
     @Transactional
-    public Group updateGroup(Long id,Group group){
+    public CwSGroup updateGroup(Long id,CwSGroup group){
         group.setId(id);
         return entityManager.merge(group);
     }
 
     @Transactional
     public void deleteGroup(Long id){
-        var entity = entityManager.find(Group.class, id);
+        CwSGroup entity = entityManager.find(CwSGroup.class, id);
+        for(CwSUser cwSUser : entity.getMembers()){
+            entityManager.remove(cwSUser);
+        }
         entityManager.remove(entity);
     }
 
-    public List<Group> findAll(){
-        var query = entityManager.createQuery("FROM Group", Group.class);
+    public List<CwSGroup> findAll(){
+        var query = entityManager.createQuery("FROM Group", CwSGroup.class);
         return query.getResultList();
     }
 }

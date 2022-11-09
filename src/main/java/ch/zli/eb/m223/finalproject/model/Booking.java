@@ -9,6 +9,8 @@ import org.hibernate.annotations.FetchMode;
 
 
 import java.time.LocalDate;
+
+@Entity
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +20,12 @@ public class Booking {
     @Column(nullable = false)
     private LocalDate date;
 
+    @Column(nullable = false)
+    private boolean allowed;
+
     @ManyToOne(optional = false)
     @Fetch(FetchMode.JOIN)
-    private User user;
+    private CwSUser CsWUser;
 
     public Long getId() {
         return id;
@@ -38,12 +43,12 @@ public class Booking {
         this.date = date;
     }
 
-    public User getUser() {
-        return user;
+    public CwSUser getCsWUser() {
+        return CsWUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(CwSUser user) {
+        this.CsWUser = user;
     }
     
 }

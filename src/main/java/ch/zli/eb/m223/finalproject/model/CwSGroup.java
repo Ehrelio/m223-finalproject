@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
 @Entity
-public class Group {
+public class CwSGroup {
     @Id
     @GeneratedValue
     @Schema(readOnly = true)
@@ -27,7 +27,7 @@ public class Group {
     @OneToMany(mappedBy = "group")
     @JsonIgnoreProperties("category")
     @Fetch(FetchMode.JOIN)
-    private List<User> members;
+    private List<CwSUser> members;
 
     public Long getId() {
         return id;
@@ -45,11 +45,11 @@ public class Group {
         this.name = name;
     }
 
-    public List<User> getMembers() {
+    public List<CwSUser> getMembers() {
         return members;
     }
 
-    public void setMembers(List<User> members) {
+    public void setMembers(List<CwSUser> members) {
         this.members = members;
     }
 

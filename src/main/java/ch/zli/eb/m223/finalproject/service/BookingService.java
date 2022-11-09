@@ -1,9 +1,12 @@
 package ch.zli.eb.m223.finalproject.service;
 
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+
 
 import ch.zli.eb.m223.finalproject.model.Booking;
 
@@ -27,5 +30,14 @@ public class BookingService {
     public void deleteBooking(Long id){
         var entity = entityManager.find(Booking.class, id);
         entityManager.remove(entity);
+    }
+
+    public Booking getBooking(Long id){
+        return entityManager.find(Booking.class, id);
+    }
+
+    public List<Booking> findAll(){
+        var query = entityManager.createQuery("FROM booking", Booking.class);
+        return query.getResultList();
     }
 }
