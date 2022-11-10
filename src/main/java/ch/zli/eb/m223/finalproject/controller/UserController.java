@@ -2,15 +2,13 @@ package ch.zli.eb.m223.finalproject.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.hibernate.Criteria;
 
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -22,12 +20,12 @@ import javax.ws.rs.Produces;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 
-import ch.zli.eb.m223.finalproject.model.CwSGroup;
 import ch.zli.eb.m223.finalproject.model.CwSUser;
 import ch.zli.eb.m223.finalproject.service.UserService;
 
 @Path("/users")
 @Tag(name = "Users", description = "Handling of users")
+@RolesAllowed({"user", "admin"})
 public class UserController {
 
     @Inject

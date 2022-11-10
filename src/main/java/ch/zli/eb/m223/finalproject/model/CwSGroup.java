@@ -29,6 +29,13 @@ public class CwSGroup {
     @Fetch(FetchMode.JOIN)
     private List<CwSUser> members;
 
+    public CwSGroup(String name, List<CwSUser> members) {
+        this.name = name;
+        this.members = members;
+    }
+
+    public CwSGroup(){}
+
     public Long getId() {
         return id;
     }

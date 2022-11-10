@@ -5,15 +5,10 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.swing.GroupLayout.Group;
 import javax.transaction.Transactional;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 
 import ch.zli.eb.m223.finalproject.model.CwSGroup;
 import ch.zli.eb.m223.finalproject.model.CwSUser;
-import io.quarkus.security.User;
 
 @ApplicationScoped
 public class GroupService {

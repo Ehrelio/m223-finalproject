@@ -25,7 +25,7 @@ public class Booking {
 
     @ManyToOne(optional = false)
     @Fetch(FetchMode.JOIN)
-    private CwSUser CsWUser;
+    private CwSUser csWUser;
 
     public Long getId() {
         return id;
@@ -43,12 +43,12 @@ public class Booking {
         this.date = date;
     }
 
-    public CwSUser getCsWUser() {
-        return CsWUser;
+    public CwSUser getcsWUser() {
+        return csWUser;
     }
 
     public void setUser(CwSUser user) {
-        this.CsWUser = user;
+        this.csWUser = user;
     }
     
 }

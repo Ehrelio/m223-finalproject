@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Optional;
 
 import javax.inject.Inject;
-import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 

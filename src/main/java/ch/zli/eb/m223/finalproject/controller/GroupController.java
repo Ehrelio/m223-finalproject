@@ -2,8 +2,8 @@ package ch.zli.eb.m223.finalproject.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
-import javax.swing.GroupLayout.Group;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -20,10 +20,10 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import ch.zli.eb.m223.finalproject.model.CwSGroup;
 import ch.zli.eb.m223.finalproject.service.GroupService;
-import ch.zli.eb.m223.finalproject.service.UserService;
 
 @Path("/group")
 @Tag(name = "Groups", description = "Handling of groups")
+@RolesAllowed({"admin"})
 public class GroupController {
     
 

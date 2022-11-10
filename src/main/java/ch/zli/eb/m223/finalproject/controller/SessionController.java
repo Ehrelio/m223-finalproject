@@ -11,6 +11,9 @@ import javax.ws.rs.core.Response;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import ch.zli.eb.m223.finalproject.model.Credential;
+import ch.zli.eb.m223.finalproject.service.SessionService;
+
 @Path("/session")
 @Tag(name = "Session", description = "Handling of sessions")
 @PermitAll

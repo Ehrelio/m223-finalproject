@@ -13,13 +13,6 @@ import java.util.List;
 
 @Entity
 public class CwSUser {
-    public String getHashedPassword() {
-        return hashedPassword;
-    }
-
-    public List<Booking> getBookings() {
-        return bookings;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,10 +41,31 @@ public class CwSUser {
     @Fetch(FetchMode.JOIN)
     private CwSGroup group;
 
-    @OneToMany(mappedBy = "CwSUser")
-    @JsonIgnoreProperties("CwSUser")
+    @OneToMany(mappedBy = "csWUser")
+    @JsonIgnoreProperties("csWUser")
     @Fetch(FetchMode.JOIN)
     private List<Booking> bookings;
+
+    public CwSUser(String name, String firstname, LocalDate birthdate, String email, String hashedPassword,
+    boolean admin, CwSGroup group, List<Booking> bookings) {
+        this.name = name;
+        this.firstname = firstname;
+        this.birthdate = birthdate;
+        this.email = email;
+        this.hashedPassword = hashedPassword;
+        this.admin = admin;
+        this.group = group;
+        this.bookings = bookings;
+    }
+
+    public CwSUser(){}
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 
     public CwSGroup getGroup() {
         return group;
@@ -64,6 +78,15 @@ public class CwSUser {
     public Long getId() {
         return id;
     }
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+   
 
     public void setId(Long id) {
         this.id = id;

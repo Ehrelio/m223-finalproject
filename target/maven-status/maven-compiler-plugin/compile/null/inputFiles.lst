@@ -1,9 +1,13 @@
-/workspace/src/main/java/ch/zli/eb/m223/finalproject/model/Booking.java
-/workspace/src/main/java/ch/zli/eb/m223/finalproject/controller/UserController.java
 /workspace/src/main/java/ch/zli/eb/m223/finalproject/model/CwSGroup.java
 /workspace/src/main/java/ch/zli/eb/m223/finalproject/model/CwSUser.java
-/workspace/src/main/java/ch/zli/eb/m223/finalproject/Application.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/controller/SessionController.java
 /workspace/src/main/java/ch/zli/eb/m223/finalproject/service/GroupService.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/service/UserService.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/model/Booking.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/model/Credential.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/service/SessionService.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/controller/UserController.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/Application.java
 /workspace/src/main/java/ch/zli/eb/m223/finalproject/controller/GroupController.java
 /workspace/src/main/java/ch/zli/eb/m223/finalproject/service/BookingService.java
-/workspace/src/main/java/ch/zli/eb/m223/finalproject/service/UserService.java
+/workspace/src/main/java/ch/zli/eb/m223/finalproject/controller/BookingController.java

@@ -2,17 +2,13 @@ package ch.zli.eb.m223.finalproject.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.hibernate.Criteria;
-
-import com.arjuna.ats.arjuna.common.recoveryPropertyManager;
 
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -25,11 +21,7 @@ import javax.ws.rs.Produces;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 
 import ch.zli.eb.m223.finalproject.model.Booking;
-import ch.zli.eb.m223.finalproject.model.CwSGroup;
-import ch.zli.eb.m223.finalproject.model.CwSUser;
 import ch.zli.eb.m223.finalproject.service.BookingService;
-import ch.zli.eb.m223.finalproject.service.UserService;
-import io.vertx.core.cli.annotations.Description;
 
 @Path("/bookings")
 @Tag(name = "Bookings", description = "Handling of Bookings")
@@ -38,9 +30,10 @@ public class BookingController {
     @Inject
     BookingService bookingService;
 
-    @Path("/{id")
+    @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user", "admin"})
     @Operation(
         summary = "find booking by id",
         description = "find a booking by its id and return it"
@@ -51,6 +44,7 @@ public class BookingController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"admin"})
     @Operation(
         summary = "index all bookings",
         description = "returns a list of all bookings"
@@ -63,6 +57,7 @@ public class BookingController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user", "admin"})
     @Operation(
         summary = "Creates new booking",
         description = "Creates a new booking and returns the newly added booking"
@@ -73,6 +68,7 @@ public class BookingController {
 
     @Path("/{id}")
     @DELETE
+    @RolesAllowed({"user", "admin"})
     @Operation(
         summary = "Deletes a booking",
         description = "deletes a booking by its id"
@@ -83,6 +79,7 @@ public class BookingController {
 
     @Path("/{id}")
     @PUT
+    @RolesAllowed({"user", "admin"})
     @Operation(
         summary = "updates a booking",
         description = "Updates a booking by its id and returns new version"

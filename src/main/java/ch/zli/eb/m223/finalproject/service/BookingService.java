@@ -37,7 +37,7 @@ public class BookingService {
     }
 
     public List<Booking> findAll(){
-        var query = entityManager.createQuery("FROM booking", Booking.class);
+        var query = entityManager.createQuery("FROM Booking", Booking.class);
         return query.getResultList();
     }
 }
