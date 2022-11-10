@@ -21,7 +21,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import ch.zli.eb.m223.finalproject.model.CwSGroup;
 import ch.zli.eb.m223.finalproject.service.GroupService;
 
-@Path("/group")
+@Path("/groups")
 @Tag(name = "Groups", description = "Handling of groups")
 @RolesAllowed({"admin"})
 public class GroupController {
@@ -74,7 +74,7 @@ public class GroupController {
         return groupService.updateGroup(id, group);
     }
 
-    @Path("({id}")
+    @Path("/{id}")
     @DELETE
     @Operation(
         summary = "deletes an existing group",

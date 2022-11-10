@@ -10,7 +10,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.time.LocalDate;
 import java.util.List; 
-
+@NamedQueries({
+    @NamedQuery(name = "CwSUser.findByEmail", query = "SELECT u FROM CwSUser u WHERE u.email = :email")
+  })
 @Entity
 public class CwSUser {
 

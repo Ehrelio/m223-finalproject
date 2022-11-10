@@ -1,5 +1,6 @@
 package ch.zli.eb.m223.finalproject.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,12 @@ public class UserService {
 
     @Transactional
     public CwSUser createUser(CwSUser user) {
+        if(user.getBirthdate().isBefore(LocalDate.of(2003, 11, 2))){
         user.setAdmin(false);
         return entityManager.merge(user);
+        }else{
+            return user;
+        }
     }
 
     @Transactional

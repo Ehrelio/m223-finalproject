@@ -42,7 +42,7 @@ public class GroupService {
     }
 
     public List<CwSGroup> findAll(){
-        var query = entityManager.createQuery("FROM Group", CwSGroup.class);
+        var query = entityManager.createQuery("FROM CwSGroup", CwSGroup.class);
         return query.getResultList();
     }
 }
