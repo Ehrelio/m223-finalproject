@@ -2,14 +2,10 @@ package ch.zli.eb.m223.finalproject.controller;
 
 import java.time.LocalDate;
 import java.util.Collections;
-import java.util.List;
 
-import org.eclipse.sisu.plexus.Roles;
-import org.hamcrest.core.Is;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ch.zli.eb.m223.finalproject.controller.TransactionalQuarkusTest;
 import ch.zli.eb.m223.finalproject.model.Booking;
 import ch.zli.eb.m223.finalproject.model.CwSUser;
 import io.quarkus.test.security.TestSecurity;

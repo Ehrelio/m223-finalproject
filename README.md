@@ -1,8 +1,18 @@
 # final-project Project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+##DatabaseAdministration
+
+On http://localhost:5050 is PgAdmin4 accessable. With that you can view and alter the database comfortably. the username is `zli@example.com` and the password is `zli*123`. The connection to the postgres database must be configured witht the following data:
+
+ - Host name/address: `db`
+ - Port: `5432`
+ - Maintenance database: `postgres`
+ - Username: `postgres`
+ - Password: `postgres`
+
+ ##automated tests
+the automated tests can be startet with the following command `./mvnw quarkus:test`. For the tests the postgres database is not used instead a h2 database is being used which is localted in the RAM while the application is running.
 
 ## Running the application in dev mode
 
